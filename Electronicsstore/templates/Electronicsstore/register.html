@@ -1,0 +1,39 @@
+<h1> Register <h1>
+
+    <form method = "POST"  action = "">
+      {% comment %} "بما اني بعبي البيانات ف لازم ميسود من نوع بوست" {% endcomment %}
+
+      {% csrf_token %} 
+      {% comment %} عشان يسمحلي بالارسال من الفيوز ل الصفحه دي  {% endcomment %}
+
+      {% comment %} {{form.as_p}} {% endcomment %}
+        {% comment %} بيتم الاستدعاء من الفيوز ,طباعه {% endcomment %}
+
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"> {{form.username.label}}</label>
+            {{form.username}}  <br>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{form.email.label}}</label>
+            {{form.email}}  <br>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"> {{form.password1.label}}</label>
+            {{form.password1}}  <br>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{form.password2.label}}</label>
+            {{form.password2}}  <br>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br>
+        {{form.errors}} 
+        <br>
+        <a href = "{% url 'login'%}"> Login page </a>
+      </form>

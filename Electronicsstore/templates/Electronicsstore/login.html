@@ -1,0 +1,53 @@
+{% comment %} <h1> Login <h1>
+
+
+    <form method = "POST"  action = "">
+      {% csrf_token %} 
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="form-label">username</label>
+          <input type="text"  name = "username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name ="password'"  type = password class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+
+
+    {% for msg in messages%}
+
+    <h4>{{msg}}</h4>
+
+    {% endfor %} {% endcomment %}
+
+    <h1> Login <h1> 
+      <form method = "POST" >
+        {% csrf_token %} 
+          <div class="mb-3">
+            <label for="username">username</label>
+            <input type="text"   id = "username"  name = "username" class="form-control">
+          </div>
+          <br>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type ="password'"  id  = "password"  name = "password"  class="form-control" id="exampleInputPassword1">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary"><a href = "/"> back home </a></button>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary"><a href = "/register "> or register now </a></button>
+          <br>
+          <br>
+          <br>
+          <a href = "#">warning</a>
+      {% if messages %}
+        {% %}
+
+        </form>

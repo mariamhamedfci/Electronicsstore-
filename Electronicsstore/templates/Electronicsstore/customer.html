@@ -1,0 +1,88 @@
+{% extends 'Electronicsstore/main.html' %}
+
+{% block content %}
+
+<h1  class = "p-5">Customer</h1>
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col">
+
+      <a href = "{% url 'create' customers.id %}"> Create Order </a>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col">
+
+      <form class="d-flex"  method = "GET">
+        {{ myFilter.form}}
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+
+
+<div class="container pb-5">
+    <div class="row">
+      <div class="col">
+      Full name : {{customers.name}}
+      </div>
+      <div class="col">
+       Email : {{customers.email}}
+      </div>
+      <div class="col">
+         Age :{{customers.age}}
+      </div>
+      <div class="col">
+        Number of orders : {{number_order}}
+     </div>
+    </div>
+  </div>
+  
+ <div class = "container"> 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">device</th>
+        <th scope="col">mark</th> 
+        <th scope="col">status</th>
+        <th scope="col">date_created </th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for item in  orders  %}
+           
+            <td>{{item.devices}}</td>
+            <td>{{item.devices.mark}}</td>
+            <td>{{item.status}}</td>
+             <td>{{item.date_created}}</td>
+             <td>{{item.Action}}
+
+            <a class = "text-danger" href= {% url 'delete' item.id %} >Remove</a>
+            <a href={% url 'update' item.id %} >Edit</a>
+
+             </td>
+          </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+ </div>
+
+
+{% endblock %}
+
